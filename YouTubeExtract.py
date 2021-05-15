@@ -17,12 +17,16 @@ from selenium import webdriver
 import time
 
 global MinChar
+global chrome_path
 MinChar = 2
 global MaxHeight
-MaxHeight = 20
+MaxHeight = 10
+
+chrome_path = r'C:/bin/chromedriver.exe'
 
 def GetURLsFromYoutube(Busca):
     # Open The Output Excel
+    global chrome_path
     if os.path.exists("./SiteLists/URL_List.xlsx"):
         os.remove("./SiteLists/URL_List.xlsx")
     
@@ -35,7 +39,6 @@ def GetURLsFromYoutube(Busca):
         # Start the driver
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--mute-audio")
-        chrome_path = r'C:/bin/chromedriver.exe'
         driver = webdriver.Chrome(executable_path=chrome_path, options=chrome_options)
     
         driver.get(url)
@@ -198,20 +201,5 @@ def RunAll():
 #              "https://www.youtube.com/results?search_query=Hysys&sp=CAMSBAgFEAE%253D"] 
 #RunAll()
 
-#BuscaSites = ["https://www.youtube.com/c/ANSYSTechTips/videos"]
-#RunAll()
-
-#BuscaSites = ["https://www.youtube.com/c/CFDNINJA/videos"]
-#RunAll()
-
-#BuscaSites = ["https://www.youtube.com/results?search_query=Engenharia+Qu%C3%ADmica&sp=CAMSBAgFEAE%253D"] 
-#RunAll()
-
-BuscaSites = ["https://www.youtube.com/c/FranciscoRodrigues/videos"]
-RunAll()
-
-BuscaSites = ["https://www.youtube.com/c/PSeleghim/videos"]
-RunAll()
-
-BuscaSites = ["https://www.youtube.com/c/BetaEQ/videos"]
+BuscaSites = ["https://www.youtube.com/results?search_query=OBS&sp=EgIQAQ%253D%253D"]
 RunAll()
